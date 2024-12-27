@@ -1,5 +1,9 @@
-import { greet } from "../pkg/cacher_wasm.js";
+import { Cacher, CacherOptions } from "../pkg/cacher_wasm.js";
 
 if (import.meta.main) {
-  console.log(greet());
+  const cacher_opt = new CacherOptions();
+
+  const cacher = new Cacher(cacher_opt);
+
+  console.log(cacher.save_file("asd", "asd"));
 }
