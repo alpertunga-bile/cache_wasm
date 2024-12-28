@@ -9,5 +9,5 @@ if (import.meta.main) {
 
   const return_info: CacherReturnInfo = cacher.get_data(info);
 
-  console.log(cacher_opt);
+  console.log(return_info);
 }

@@ -81,6 +81,27 @@ pub struct CacherReturnInfo {
 }
 
 #[wasm_bindgen]
+impl CacherReturnInfo {
+    #[wasm_bindgen(constructor)]
+    pub fn new() -> Self {
+        return Self {
+            is_expired: false,
+            data: String::new(),
+        };
+    }
+
+    #[wasm_bindgen(getter)]
+    pub fn data(&self) -> String {
+        self.data.clone()
+    }
+
+    #[wasm_bindgen(getter)]
+    pub fn is_expired(&self) -> bool {
+        self.is_expired
+    }
+}
+
+#[wasm_bindgen]
 impl CacherOptions {
     #[wasm_bindgen(constructor)]
     pub fn new() -> Self {
