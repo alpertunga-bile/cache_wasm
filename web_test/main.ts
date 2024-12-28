@@ -1,13 +1,16 @@
-import { Cacher, CacherOptions, CacherReturnInfo } from "../pkg/cacher_wasm.js";
+import {
+  CacherOptions,
+  CacherReturnInfo,
+  get_compressed_cacher_info,
+  get_decompressed_data,
+} from "../pkg/cacher_wasm.js";
 
 if (import.meta.main) {
   const cacher_opt = new CacherOptions();
 
-  const cacher = new Cacher(cacher_opt);
+  const info = get_compressed_cacher_info(cacher_opt, "asd");
 
-  const info = cacher.get_compressed_info("asd");
+  const return_info: CacherReturnInfo = get_decompressed_data(info);
 
-  const return_info: CacherReturnInfo = cacher.get_data(info);
-
-  console.log(return_info);
+  console.log(return_info.data);
 }
