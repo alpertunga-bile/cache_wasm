@@ -233,7 +233,7 @@ fn check_if_expired(creation_time: &String, remaining_unit: &String, remaining_t
         CacherDateRemainingUnit::Days => diff_time.num_days(),
         CacherDateRemainingUnit::Weeks => diff_time.num_weeks(),
         CacherDateRemainingUnit::Months => diff_time.num_weeks() / 4,
-        CacherDateRemainingUnit::Years => diff_time.num_weeks() / 12,
+        CacherDateRemainingUnit::Years => diff_time.num_weeks() / 52,
     };
 
     time >= remaining_time
