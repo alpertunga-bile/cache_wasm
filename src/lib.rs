@@ -221,7 +221,7 @@ fn check_if_expired(creation_time: &String, remaining_unit: &String, remaining_t
 
     let created_time = NaiveDateTime::parse_from_str(&creation_time, DATE_FORMAT).unwrap();
 
-    let diff_time = created_time.signed_duration_since(now.naive_utc());
+    let diff_time = now.naive_utc().signed_duration_since(created_time);
 
     let unit = CacherDateRemainingUnit::from_str(remaining_unit).unwrap();
 
