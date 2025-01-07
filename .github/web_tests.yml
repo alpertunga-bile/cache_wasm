@@ -1,0 +1,25 @@
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install
+        run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+      - name: Cargo Test
+        run: cargo test
+
+      - name: Headless Chrome Test
+        run: wasm-pack test --headless --chrome --release
+
+      - name: Headless Firefox Test
+        run: wasm-pack test --headless --firefox --release
+
+      - name: Headless Safari Test
+        run: wasm-pack test --headless --safari --release
+
+      - name: Node Test
+        run: wasm-pack test --headless --node --release
