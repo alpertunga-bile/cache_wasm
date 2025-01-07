@@ -66,3 +66,29 @@ fn pi_test() {
 
     assert_eq!(data, decompressed_data.data());
 }
+
+#[wasm_bindgen_test]
+fn json_test() {
+    let options = CacherOptions::new();
+    let data = r#"
+      {"string":"Hello, World!","number":123,"boolean":true,"null":null,"array":[1,2,3,4,5],"object":{"name":"John Doe","age":30,"occupation":"Software Developer"},"nested_object":{"address":{"street":"123 Main St","city":"Anytown","state":"CA","zip":"12345"}},"array_of_objects":[{"name":"Jane Doe","age":25},{"name":"Bob Smith","age":40}]}
+      "#;
+
+    let compressed_info: Vec<u8> = get_compressed_cacher_info(&options, &data);
+    let decompressed_data: CacherReturnInfo = get_decompressed_data(&compressed_info);
+
+    assert_eq!(data, decompressed_data.data());
+}
+
+#[wasm_bindgen_test]
+fn tattoo_test() {
+    let options = CacherOptions::new();
+    let data = r#"
+     During tattooing, ink is injected into the skin, initiating an immune response, and cells called "macrophages" move into the area and "eat up" the ink. The macrophages carry some of the ink to the body's lymph nodes, but some that are filled with ink stay put, embedded in the skin. That's what makes the tattoo visible under the skin. Dalhousie Uiversity's Alec Falkenham is developing a topical cream that works by targeting the macrophages that have remained at the site of the tattoo. New macrophages move in to consume the previously pigment-filled macrophages and then migrate to the lymph nodes, eventually taking all the dye with them. "When comparing it to laser-based tattoo removal, in which you see the burns, the scarring, the blisters, in this case, we've designed a drug that doesn't really have much off-target effect," he said. "We're not targeting any of the normal skin cells, so you won't see a lot of inflammation. In fact, based on the process that we're actually using, we don't think there will be any inflammation at all and it would actually be anti-inflammatory.
+      "#;
+
+    let compressed_info: Vec<u8> = get_compressed_cacher_info(&options, &data);
+    let decompressed_data: CacherReturnInfo = get_decompressed_data(&compressed_info);
+
+    assert_eq!(data, decompressed_data.data());
+}
