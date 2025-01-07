@@ -17,6 +17,3 @@ jobs:
 
       - name: Headless Firefox Test
         run: wasm-pack test --headless --firefox --release
-
-      - name: Node Test
-        run: wasm-pack test --headless --node --release
