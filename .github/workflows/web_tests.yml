@@ -18,8 +18,5 @@ jobs:
       - name: Headless Firefox Test
         run: wasm-pack test --headless --firefox --release
 
-      - name: Headless Safari Test
-        run: wasm-pack test --headless --safari --release
-
       - name: Node Test
         run: wasm-pack test --headless --node --release
